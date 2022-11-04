@@ -13,7 +13,7 @@ export class App extends Component {
     e.preventDefault();
     const searchValue = e.currentTarget.elements.search.value;
     if (searchValue.trim() === '') {
-      return Notiflix.Notify.failure('Enter somthing');
+      return Notiflix.Notify.failure('Please enter something');
     }
     this.setState({
       search: searchValue.toLowerCase(),
@@ -25,7 +25,7 @@ export class App extends Component {
     return (
       <>
         <Searchbar onSubmit={this.onSubmit} />
-        <ImageGallery />
+        <ImageGallery search={this.state.search} />
       </>
     );
   }
