@@ -1,8 +1,8 @@
 import './ImageGalleryItem.css';
 
-const ImageGalleryItem = ({ url, alt }) => {
+const ImageGalleryItem = ({ url, large, alt, onClick }) => {
   return (
-    <li className="gallery-item">
+    <li onClick={() => onClick(large, alt)} className="gallery-item">
       <img className="image" src={url} alt={alt} />
     </li>
   );
