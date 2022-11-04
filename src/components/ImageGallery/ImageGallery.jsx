@@ -12,31 +12,31 @@ class ImageGallery extends Component {
     if (status === 'idle') {
       return;
     }
-    if (status === 'pending') {
-      return <Loader />;
-    }
     if (status === 'rejected') {
       return <h1>{error.message}</h1>;
     }
-    if (status === 'resolved') {
-      return (
-        <>
-          <ul className="gallery">
-            {images.map(img => (
-              <ImageGalleryItem
-                key={img.id}
-                url={img.webformatURL}
-                large={img.largeImageURL}
-                alt={img.tags}
-                onClick={this.props.onModal}
-              />
-            ))}
-          </ul>
+    return (
+      <>
+        <ul className="gallery">
+          {images.map(img => (
+            <ImageGalleryItem
+              key={img.id}
+              url={img.webformatURL}
+              large={img.largeImageURL}
+              alt={img.tags}
+              onClick={this.props.onModal}
+            />
+          ))}
+        </ul>
+        {status === 'pending' ? (
+          <Loader />
+        ) : (
           <Button onLoadMore={this.props.onLoadMore} />
-          {modal && <Modal onClose={this.props.onModal} img={currentImg} />}
-        </>
-      );
-    }
+        )}
+        {modal && <Modal onClose={this.props.onModal} img={currentImg} />}
+      </>
+    );
   }
 }
+
 export default ImageGallery;
