@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './ImageGalleryItem.css';
 
 const ImageGalleryItem = ({ url, large, alt, onClick }) => {
@@ -8,3 +9,10 @@ const ImageGalleryItem = ({ url, large, alt, onClick }) => {
   );
 };
 export default ImageGalleryItem;
+
+ImageGalleryItem.propTypes = {
+  url: PropTypes.string.isRequired,
+  large: PropTypes.string.isRequired,
+  alt: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired,
+};

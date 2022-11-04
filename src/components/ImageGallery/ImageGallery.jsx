@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import './ImageGallery.css';
 import ImageGalleryItem from './ImageGalleryItem/ImageGalleryItem';
 import Loader from '../Loader/Loader';
@@ -38,5 +39,10 @@ class ImageGallery extends Component {
     );
   }
 }
-
 export default ImageGallery;
+
+ImageGallery.propTypes = {
+  state: PropTypes.object.isRequired,
+  onLoadMore: PropTypes.func.isRequired,
+  onModal: PropTypes.func.isRequired,
+};
